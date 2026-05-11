@@ -430,27 +430,26 @@ section { scroll-margin-top: 80px; }
 .depo__name { font-family: var(--f-display); font-size: 18px; font-weight: 500; line-height: 1.1; }
 .depo__role { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
 
-/* ─── Galeria ─── */
-.galeria { background: var(--paper-2); }
-.galeria__grid {
-  display: grid; grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 200px; gap: 8px;
-}
-.galeria__item { overflow: hidden; }
-.galeria__item img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s ease; }
-.galeria__item:hover img { transform: scale(1.03); }
-.galeria__item--wide { grid-column: span 2; }
-.galeria__item--tall { grid-row: span 2; }
 
 /* ─── Instagram ─── */
+.insta { background: var(--paper-2); }
 .insta__head {
   display: grid; grid-template-columns: 1fr auto; gap: 32px;
   align-items: end; margin-bottom: 48px;
 }
 .insta__head h2 { font-family: var(--f-display); font-size: clamp(36px, 4.4vw, 60px); margin: 0; font-weight: 300; }
 .insta__head h2 em { color: var(--accent); font-style: italic; }
-.insta__handle { font-family: var(--f-script); font-size: 32px; color: var(--accent); margin-top: 4px; }
-.insta__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.insta__handle { font-family: "EB Garamond", serif; font-size: 32px; font-style: italic; color: var(--accent); margin-top: 4px; }
+.insta__grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.insta__grid::-webkit-scrollbar { display: none; }
+.insta__item { flex: 0 0 calc(25% - 9px); scroll-snap-align: start; }
 .insta__item {
   aspect-ratio: 1; overflow: hidden;
   position: relative;
@@ -511,8 +510,7 @@ section { scroll-margin-top: 80px; }
   .areas__grid { grid-template-columns: repeat(2, 1fr); }
   .historia__grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: 220px 220px 220px; }
   .historia__item--tall { grid-row: auto; }
-  .galeria__grid { grid-template-columns: repeat(3, 1fr); }
-  .insta__grid { grid-template-columns: repeat(3, 1fr); }
+  /* insta__grid é flex — sem override necessário */
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .nav__menu { display: none; }
   .depo__grid { grid-template-columns: 1fr; }
@@ -522,7 +520,8 @@ section { scroll-margin-top: 80px; }
   :root { --section-py: 72px; --section-px: 24px; }
   .hero__title { font-size: 44px; }
   .hero__meta { flex-wrap: wrap; gap: 12px; }
-  .areas__grid, .galeria__grid, .insta__grid { grid-template-columns: repeat(2, 1fr); }
+  .areas__grid { grid-template-columns: repeat(2, 1fr); }
+  .insta__item { flex: 0 0 calc(50% - 6px); }
   .area { padding: 20px 16px; min-height: 240px; }
   .area__title { font-size: 18px; }
   .historia__grid { grid-template-columns: 1fr; grid-template-rows: repeat(4, 220px); }
@@ -548,7 +547,7 @@ section { scroll-margin-top: 80px; }
   .dif__expand { display: none; }
   .dif__num { font-size: 24px; }
   .dif__title { font-size: 20px; }
-  .insta__handle { font-size: 22px; }
+  .insta__handle { font-size: 22px; font-family: "EB Garamond", serif; font-style: italic; }
   .footer__grid { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; gap: 8px; }
   .ticker__track { font-size: 18px; gap: 32px; }
