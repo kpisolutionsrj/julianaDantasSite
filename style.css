@@ -430,6 +430,52 @@ section { scroll-margin-top: 80px; }
 .depo__name { font-family: var(--f-display); font-size: 18px; font-weight: 500; line-height: 1.1; }
 .depo__role { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
 
+/* featured */
+.depoimentos .section__head { margin-bottom: 28px; }
+
+.depo--featured {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0;
+  border: none;
+  margin-bottom: 28px;
+}
+.depo--featured:hover { transform: none; box-shadow: none; }
+.depo__featured-left {
+  padding: 48px 36px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  text-align: center;
+}
+.depo__featured-right {
+  padding: 48px 56px;
+  display: flex; flex-direction: column;
+}
+.depo--featured .depo__avatar--lg { width: 88px; height: 88px; margin-bottom: 8px; }
+.depo--featured .depo__name { font-size: 22px; color: var(--paper); white-space: nowrap; }
+.depo--featured .depo__role { color: var(--accent-soft); letter-spacing: 0.24em; font-size: 9px; }
+.depo__divider { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 12px 0; }
+.depo__result-num {
+  display: block;
+  font-family: var(--f-display); font-style: italic;
+  font-size: 40px; line-height: 1; color: var(--paper);
+}
+.depo__result-lbl {
+  display: block; margin-top: 4px;
+  font-size: 8px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--accent-soft);
+}
+.depo--featured .depo__mark { color: var(--accent-soft); font-size: 80px; height: 32px; }
+.depo--featured .depo__text {
+  font-family: var(--f-display);
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.7; color: var(--paper);
+  margin-top: 0;
+}
+
 
 /* ─── Instagram ─── */
 .insta { background: var(--paper-2); }
@@ -516,6 +562,9 @@ section { scroll-margin-top: 80px; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .nav__menu { display: none; }
   .depo__grid { grid-template-columns: 1fr; }
+  .depo--featured { grid-template-columns: 1fr; }
+  .depo__featured-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 36px 32px; }
+  .depo__featured-right { padding: 36px 32px; }
   .section__head { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 640px) {
